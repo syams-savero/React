@@ -161,6 +161,21 @@
   }
 }
 
+.Square {
+  width: 64px;
+  height: 64px;
+  font-size: 24px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  box-sizing: border-box;
+}
+
+.board-row {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
 .ticks {
   position: relative;
   width: 100%;
