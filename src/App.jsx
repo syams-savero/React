@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Syarat from './components.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -53,6 +54,7 @@ export default function Board() {
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
+      <Syarat />
     </>
   );
 }
