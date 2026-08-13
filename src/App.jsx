@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Syarat from './components.jsx';
+import PackingList from './conditionalRender.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -13,6 +14,7 @@ function Square({ value, onSquareClick }) {
 export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [view, setView] = useState('game');
 
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
@@ -36,6 +38,10 @@ export default function Board() {
     status = 'Next Player: ' + (xIsNext ? 'X' : 'O');
   }
 
+  if (view === 'packing') {
+    return <PackingList />;
+  }
+
   return (
     <>
       <div className="status">{status}</div>
@@ -55,6 +61,7 @@ export default function Board() {
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
       <Syarat />
+      <button onClick={() => setView('packing')}>Pindah ke Conditional Render</button>
     </>
   );
 }
