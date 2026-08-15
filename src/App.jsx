@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Syarat from './components.jsx';
 import PackingList from './conditionalRender.jsx';
+import JobList from './renderList.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -40,7 +41,9 @@ export default function Board() {
 
   if (view === 'packing') {
     return <PackingList />;
-  }
+  } else if (view === 'job') {
+    return <JobList />;
+}
 
   return (
     <>
@@ -62,6 +65,7 @@ export default function Board() {
       </div>
       <Syarat />
       <button onClick={() => setView('packing')}>Pindah ke Conditional Render</button>
+      <button onClick={() => setView('job')}>Lihat Job List</button>
     </>
   );
 }
