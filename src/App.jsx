@@ -43,7 +43,7 @@ export default function Board() {
     return <PackingList />;
   } else if (view === 'job') {
     return <JobList />;
-}
+  }
 
   return (
     <>
