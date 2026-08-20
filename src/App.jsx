@@ -3,6 +3,7 @@ import './App.css';
 import Syarat from './components.jsx';
 import PackingList from './conditionalRender.jsx';
 import JobList from './renderList.jsx';
+import TaskMngr from './taskManager.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -43,6 +44,8 @@ export default function Board() {
     return <PackingList />;
   } else if (view === 'job') {
     return <JobList />;
+  } else if (view === 'task') {
+    return <TaskMngr />
   }
 
   return (
@@ -66,6 +69,7 @@ export default function Board() {
       <Syarat />
       <button onClick={() => setView('packing')}>Pindah ke Conditional Render</button>
       <button onClick={() => setView('job')}>Lihat Job List</button>
+      <button onClick={() => setView('task')}>Cek task manager</button>
     </>
   );
 }
