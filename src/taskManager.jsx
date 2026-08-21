@@ -9,7 +9,7 @@ export default function TaskManager() {
 
   function handleAdd() {
     if (text.trim() === '') return;
-    setTask([...task, { id: Date.now(), text: text.trim(), done: false}]);
+    setTasks([...tasks, { id: Date.now(), text: text.trim(), done: false}]);
     setText('');
   }
 
@@ -18,6 +18,9 @@ export default function TaskManager() {
     <h2>Mini Task Manager</h2>
     <input type="text" placeholder="tambah tugas baru" value={text} onChange={(e) => setText(e.target.value)}/>
     <button onClick={handleAdd}>Tambah</button>
+    <ul>
+        {tasks.map((task) => (<li key={task.id}>{task.text}</li>))}
+    </ul>
   </div>
   );
 }
