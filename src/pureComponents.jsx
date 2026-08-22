@@ -7,6 +7,7 @@ export default function Pure() {
    <p>Angka sekarang : {number}</p>
    <button onClick={() => setNumber(number * 2)}>Double it</button>
    <button onClick={() => setNumber(Math.sqrt(number))}>akar pangkat</button>
+   <button onClick={() => setNumber(number + 1)}>Tambah</button>
   </div>
   )
 }
