@@ -9,26 +9,26 @@ export default function TaskManager() {
 
   function handleAdd() {
     if (text.trim() === '') return;
-    setTasks([...tasks, { id: Date.now(), text: text.trim(), done: false}]);
+    setTasks([...tasks, { id: Date.now(), text: text.trim(), done: false }]);
     setText('');
   }
 
-  function handleDone(id) {    
-  setTasks(tasks.map((t) => t.id === id ? {...t, done: !t.done } : t))
+  function handleDone(id) {
+    setTasks(tasks.map((t) => t.id === id ? { ...t, done: !t.done } : t));
   }
 
   function handleDelete(id) {
-    setTasks(tasks.filter((t) => t.id !== id))
+    setTasks(tasks.filter((t) => t.id !== id));
   }
 
   return (
-  <div>
-    <h2>Task Manager</h2>
-    <div className='input-bar'>
-      <input type="text" placeholder="tambah tugas baru" value={text} onChange={(e) => setText(e.target.value)}/>
-      <button onClick={handleAdd}>Tambah</button>
-    </div>
-        <ul className="task-list">
+    <div>
+      <h2>Task Manager</h2>
+      <div className="input-bar">
+        <input type="text" placeholder="tambah tugas baru" value={text} onChange={(e) => setText(e.target.value)} />
+        <button onClick={handleAdd}>Tambah</button>
+      </div>
+      <ul className="task-list">
         {tasks.map((task) => (
           <li key={task.id} className="task-item">
             <span className={task.done ? 'done' : ''}>{task.text}</span>
@@ -38,7 +38,7 @@ export default function TaskManager() {
             </div>
           </li>
         ))}
-    </ul>
-  </div>
+      </ul>
+    </div>
   );
 }

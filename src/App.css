@@ -237,3 +237,9 @@
   display: flex;
   gap: 8px;
 }
+
+.nav-button {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}

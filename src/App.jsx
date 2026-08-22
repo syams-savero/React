@@ -4,6 +4,7 @@ import Syarat from './components.jsx';
 import PackingList from './conditionalRender.jsx';
 import JobList from './renderList.jsx';
 import TaskMngr from './taskManager.jsx';
+import Pure from './pureComponents.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -46,6 +47,8 @@ export default function Board() {
     return <JobList />;
   } else if (view === 'task') {
     return <TaskMngr />
+  } else if (view === 'pure') {
+    return <Pure />
   }
 
   return (
@@ -67,9 +70,12 @@ export default function Board() {
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
       <Syarat />
-      <button onClick={() => setView('packing')}>Pindah ke Conditional Render</button>
+      <div className='nav-button'>
+      <button onClick={() => setView('packing')}>Conditional Render</button>
       <button onClick={() => setView('job')}>Lihat Job List</button>
       <button onClick={() => setView('task')}>Cek task manager</button>
+      <button onClick={() => setView('pure')}>Pure Components</button>
+      </div>
     </>
   );
 }
