@@ -23,17 +23,21 @@ export default function TaskManager() {
 
   return (
   <div>
-    <h2>Mini Task Manager</h2>
-    <input type="text" placeholder="tambah tugas baru" value={text} onChange={(e) => setText(e.target.value)}/>
-    <button onClick={handleAdd}>Tambah</button>
-    <ul>
-        {tasks.map((task) => (<li key={task.id}>
-          <label>
-            <input type="checkbox" checked={task.done} onChange={() => handleDone(task.id)} />
-            <span>{task.text}</span>
-          </label>
-            <button onClick={() => handleDelete(task.id)}>Delete</button>
-          </li>))}
+    <h2>Task Manager</h2>
+    <div className='input-bar'>
+      <input type="text" placeholder="tambah tugas baru" value={text} onChange={(e) => setText(e.target.value)}/>
+      <button onClick={handleAdd}>Tambah</button>
+    </div>
+        <ul className="task-list">
+        {tasks.map((task) => (
+          <li key={task.id} className="task-item">
+            <span className={task.done ? 'done' : ''}>{task.text}</span>
+            <div className="task-actions">
+              <input type="checkbox" checked={task.done} onChange={() => handleDone(task.id)} />
+              <button onClick={() => handleDelete(task.id)}>Hapus</button>
+            </div>
+          </li>
+        ))}
     </ul>
   </div>
   );

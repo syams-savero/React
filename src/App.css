@@ -197,3 +197,43 @@
     border-right-color: var(--border);
   }
 }
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  transition: opacity 0.2s;
+
+  &.done {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.input-bar {
+  display: flex;
+  gap: 8px;
+}
