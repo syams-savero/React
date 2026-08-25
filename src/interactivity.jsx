@@ -19,7 +19,15 @@ export default function Button() {
   function click() {
     alert('clicked');
   }
-  
+ 
+  function next() {
+    if (index < people.length - 1) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
+    }
+  }
+
   return (
   <div>
   <button onClick={click}>Clicked</button>
@@ -28,6 +36,7 @@ export default function Button() {
   <h2>Nama : {people[index].name}</h2>
   <p>Umur : {people[index].age}</p>
   <p>Hobi : {people[index].hobby}</p>
+  <button onClick={next}>next people</button>
   </div>
   )
 }
