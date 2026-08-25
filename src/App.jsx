@@ -5,6 +5,7 @@ import PackingList from './conditionalRender.jsx';
 import JobList from './renderList.jsx';
 import TaskMngr from './taskManager.jsx';
 import Pure from './pureComponents.jsx';
+import Interact from './interactivity.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -49,6 +50,8 @@ export default function Board() {
     return <TaskMngr />
   } else if (view === 'pure') {
     return <Pure />
+  } else if (view === 'interact') {
+    return <Interact />
   }
 
   return (
@@ -75,6 +78,7 @@ export default function Board() {
       <button onClick={() => setView('job')}>Lihat Job List</button>
       <button onClick={() => setView('task')}>Cek task manager</button>
       <button onClick={() => setView('pure')}>Pure Components</button>
+      <button onClick={() => setView('interact')}>Interactivity</button>
       </div>
     </>
   );
