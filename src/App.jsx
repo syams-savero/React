@@ -6,6 +6,7 @@ import JobList from './renderList.jsx';
 import TaskMngr from './taskManager.jsx';
 import Pure from './pureComponents.jsx';
 import Interact from './interactivity.jsx';
+import ReactionGame from './reactionGame.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -52,6 +53,8 @@ export default function Board() {
     return <Pure />
   } else if (view === 'interact') {
     return <Interact />
+  } else if (view === 'reaction') {
+    return <ReactionGame />
   }
 
   return (
@@ -79,6 +82,7 @@ export default function Board() {
       <button onClick={() => setView('task')}>Cek task manager</button>
       <button onClick={() => setView('pure')}>Pure Components</button>
       <button onClick={() => setView('interact')}>Interactivity</button>
+      <button onClick={() => setView('reaction')}>Reaction Game</button>
       </div>
     </>
   );
