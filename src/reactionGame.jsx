@@ -5,7 +5,7 @@ export default function ReactionGame() {
   
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-
+  const [countDown, setCountDown] = useState(null);
   useEffect(() => {
     if (!isRunning) return;
     const id = setInterval(() => {
