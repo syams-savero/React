@@ -40,3 +40,7 @@
   margin-bottom: 20px;
   font-variant-numeric: tabular-nums;
 }
+
+.cell-active {
+  background: white;
+}

@@ -39,15 +39,9 @@ export default function ReactionGame() {
   <div className="reaction-container">
     <div className="stopwatch">{seconds}.{ms < 10 ? '0' + ms : ms}</div>
     <div className="reaction-grid">
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
-      <div className="reaction-cell"></div>
+      {Array.from({ length: 9}, (_, i) => (
+        <div key={i} className={i === activeIndex ? 'reaction-cell cell-active' : 'reaction-cell'}/>
+      ))}
     </div>
     {countDown !== null && (
       <div className="countdown">{countDown}</div>
