@@ -50,7 +50,11 @@ export default function ReactionGame() {
     {countDown !== null && (
       <div className="countdown">{countDown}</div>
     )}
-    <button onClick={() => setCountDown(3)}>Start</button>
+    <button onClick={() => {
+        if (!isRunning && countDown === null) {
+          setCountDown(3);
+        }
+      }}>Start</button>
   </div>
   )
 }
