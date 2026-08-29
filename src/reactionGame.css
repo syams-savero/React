@@ -14,8 +14,29 @@
 }
 
 .reaction-container {
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   min-height: 80vh;
+}
+
+.countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  font-weight: bold;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.stopwatch {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-variant-numeric: tabular-nums;
 }
