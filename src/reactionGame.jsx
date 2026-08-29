@@ -6,6 +6,7 @@ export default function ReactionGame() {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [countDown, setCountDown] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
   
   useEffect(() => {
     if (!isRunning) return;
@@ -21,6 +22,7 @@ export default function ReactionGame() {
       setCountDown(c => {
         if (c <= 1) {
           setIsRunning(true);
+          setActiveIndex(Math.floor(Math.random() * 9))
           setCountDown(null);
           return null;
         }
