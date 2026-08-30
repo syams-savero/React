@@ -7,7 +7,10 @@ export default function ReactionGame() {
   const [isRunning, setIsRunning] = useState(false);
   const [countDown, setCountDown] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
-  
+  const [score, setScore] = useState(0);
+  const [correctIndex, setCorrectIndex] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
+
   useEffect(() => {
     if (!isRunning) return;
     const id = setInterval(() => {
@@ -22,7 +25,7 @@ export default function ReactionGame() {
       setCountDown(c => {
         if (c <= 1) {
           setIsRunning(true);
-          setActiveIndex(Math.floor(Math.random() * 9))
+          setActiveIndex(Math.floor(Math.random() * 9));
           setCountDown(null);
           return null;
         }
@@ -31,6 +34,13 @@ export default function ReactionGame() {
     }, 1000);
     return () => clearInterval(id);
   }, [countDown]);
+
+  function handleCellClick(i) {
+    if (i !== activeIndex) return;
+    setActiveIndex(Math.floor(Math.random() * 9));
+    setCorrectIndex(prev => [...prev, i]);
+    setScore(s => s + 1)
+  }
 
   const seconds = Math.floor(time / 1000);
   const ms = Math.floor((time % 1000) / 10);
