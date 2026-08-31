@@ -37,7 +37,11 @@ export default function ReactionGame() {
 
   function handleCellClick(i) {
     if (i !== activeIndex) return;
-    setActiveIndex(Math.floor(Math.random() * 9));
+    let next;
+    do {
+      next = Math.floor(Math.random() * 9);
+    } while (correctIndex.includes(next));
+    setActiveIndex(next);
     setCorrectIndex(prev => [...prev, i]);
     setScore(s => s + 1)
   }
@@ -50,7 +54,7 @@ export default function ReactionGame() {
     <div className="stopwatch">{seconds}.{ms < 10 ? '0' + ms : ms}</div>
     <div className="reaction-grid">
       {Array.from({ length: 9}, (_, i) => (
-        <div key={i} onClick={() => handleCellClick(i)} className={i === activeIndex ? 'reaction-cell cell-active' : 'reaction-cell'}/>
+        <div key={i} onClick={() => handleCellClick(i)} className={correctIndex.includes(i) ? 'reaction-cell cell-correct' : i === activeIndex ? 'reaction-cell cell-active' : 'reaction-cell'}/>
       ))}
     </div>
     {countDown !== null && (
