@@ -65,7 +65,9 @@ export default function ReactionGame() {
     <div className="stopwatch">{seconds}.{ms < 10 ? '0' + ms : ms}</div>
     <div className="reaction-grid">
       {Array.from({ length: 9}, (_, i) => (
-        <div key={i} onClick={() => handleCellClick(i)} className={correctIndex.includes(i) ? 'reaction-cell cell-correct' : i === activeIndex ? 'reaction-cell cell-active' : 'reaction-cell'}/>
+        <div key={i} onClick={() => handleCellClick(i)} className={correctIndex.includes(i) ? 
+            'reaction-cell cell-correct' : i === activeIndex ? 
+              'reaction-cell cell-active' : 'reaction-cell'}/>
       ))}
     </div>
     {countDown !== null && (
