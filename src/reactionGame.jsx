@@ -37,13 +37,24 @@ export default function ReactionGame() {
 
   function handleCellClick(i) {
     if (i !== activeIndex) return;
+    const newCorrect = [...correctIndex, i];
+    setCorrectIndex(newCorrect);
+
+    const nextScore = correctIndex.length + 1;
+    setScore(nextScore);
+
+    if (nextScore >= 5) {
+      setIsRunning(false);
+      setGameOver(true);
+      setActiveIndex(null);
+      return;
+    }
+
     let next;
     do {
       next = Math.floor(Math.random() * 9);
-    } while (correctIndex.includes(next));
+    } while (newCorrect.includes(next));
     setActiveIndex(next);
-    setCorrectIndex(prev => [...prev, i]);
-    setScore(s => s + 1)
   }
 
   const seconds = Math.floor(time / 1000);
