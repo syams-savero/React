@@ -10,6 +10,8 @@ export default function ReactionGame() {
   const [score, setScore] = useState(0);
   const [correctIndex, setCorrectIndex] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const [wrongIndex, setWrongIndex] = useState(null);
+  const [penalty, setPenalty] = useState(0);
 
   useEffect(() => {
     if (!isRunning) return;
@@ -36,7 +38,8 @@ export default function ReactionGame() {
   }, [countDown]);
 
   function handleCellClick(i) {
-    if (i !== activeIndex) return;
+    if (!isRunning || gameOver) return;
+    if (i === activeIndex) {
     const newCorrect = [...correctIndex, i];
     setCorrectIndex(newCorrect);
 
@@ -55,7 +58,11 @@ export default function ReactionGame() {
       next = Math.floor(Math.random() * 9);
     } while (newCorrect.includes(next));
     setActiveIndex(next);
-  }
+  } else {
+      setWrongIndex(i);
+      setPenalty(p => p + 0.5);
+      setTimeout(() => setWrongIndex(null), 300);
+  }}
 
   const seconds = Math.floor(time / 1000);
   const ms = Math.floor((time % 1000) / 10);
@@ -63,9 +70,10 @@ export default function ReactionGame() {
   return (
   <div className="reaction-container">
     <div className="stopwatch">{seconds}.{ms < 10 ? '0' + ms : ms}</div>
+    <div className="penalty">penalty: +{penalty}s</div>
     <div className="reaction-grid">
       {Array.from({ length: 9}, (_, i) => (
-        <div key={i} onClick={() => handleCellClick(i)} className={correctIndex.includes(i) ? 
+        <div key={i} onClick={() => handleCellClick(i)} className={i === wrongIndex ? 'reaction-cell cell-wrong' : correctIndex.includes(i) ? 
             'reaction-cell cell-correct' : i === activeIndex ? 
               'reaction-cell cell-active' : 'reaction-cell'}/>
       ))}

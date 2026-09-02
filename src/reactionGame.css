@@ -48,3 +48,12 @@
 .cell-correct {
   background: lime;
 }
+
+.cell-wrong {
+  background: red;
+}
+
+.penalty {
+  font-size: 18px;
+  color: red;
+}
