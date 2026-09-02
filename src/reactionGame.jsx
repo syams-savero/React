@@ -58,7 +58,7 @@ export default function ReactionGame() {
       next = Math.floor(Math.random() * 9);
     } while (newCorrect.includes(next));
     setActiveIndex(next);
-  } else {
+  } else if (!correctIndex.includes(i)) {
       setWrongIndex(i);
       setPenalty(p => p + 0.5);
       setTimeout(() => setWrongIndex(null), 300);
