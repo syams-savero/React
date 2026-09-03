@@ -57,3 +57,25 @@
   font-size: 18px;
   color: red;
 }
+
+.gameover-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+}
+
+.gameover-box {
+  background: #fff;
+  color: #000;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.total-time {
+  font-size: 40px;
+  font-weight: bold;
+}
