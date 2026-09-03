@@ -12,6 +12,7 @@ export default function ReactionGame() {
   const [gameOver, setGameOver] = useState(false);
   const [wrongIndex, setWrongIndex] = useState(null);
   const [penalty, setPenalty] = useState(0);
+  const [mistakes, setMistakes] = useState(0);
 
   useEffect(() => {
     if (!isRunning) return;
@@ -61,11 +62,27 @@ export default function ReactionGame() {
   } else if (!correctIndex.includes(i)) {
       setWrongIndex(i);
       setPenalty(p => p + 0.5);
+      setMistakes(m => m + 1);
       setTimeout(() => setWrongIndex(null), 300);
   }}
+  
+  function resetGame() {
+    setTime(0);
+    setIsRunning(false);
+    setCountDown(null);
+    setActiveIndex(null);
+    setScore(0);
+    setCorrectIndex([]);
+    setGameOver(false);
+    setWrongIndex(null);
+    setPenalty(0);
+    setMistakes(0);
+  }
 
   const seconds = Math.floor(time / 1000);
   const ms = Math.floor((time % 1000) / 10);
+  const totalTime = (time / 1000 + penalty).toFixed(2);
+  
 
   return (
   <div className="reaction-container">
@@ -85,7 +102,18 @@ export default function ReactionGame() {
         if (!isRunning && countDown === null) {
           setCountDown(3);
         }
-      }}>Start</button>
+      }}
+      disabled={isRunning || countDown !== null}>Start</button>
+    {gameOver && (
+      <div className="gameover-overlay">
+        <div className="gameover-box">
+          <h2>Waktu habis!</h2>
+          <p className="total-time">{totalTime}s</p>
+          <p>Salah klik: {mistakes}x (+{penalty}s)</p>
+          <button onClick={resetGame}>Restart</button>
+        </div>
+      </div>
+    )}
   </div>
   )
 }
