@@ -2,13 +2,13 @@
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 10px;
-  max-width: 400px;
+  width: min(90vw, 400px);
   margin: 0 auto;
 }
 
 .reaction-cell {
-  width: 120px;
-  height: 120px;
+  aspect-ratio: 1;
+  width: 100%;
   background: black;
   border-radius: 8px;
 }
@@ -32,6 +32,7 @@
   font-weight: bold;
   z-index: 10;
   pointer-events: none;
+  margin-top: 30px;
 }
 
 .stopwatch {
@@ -78,4 +79,44 @@
 .total-time {
   font-size: 40px;
   font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .stopwatch {
+    font-size: 30px;
+  }
+  .countdown {
+    font-size: 70px;
+    margin-top: 20px;
+  }
+  .penalty {
+    font-size: 14px;
+  }
+  .gameover-box {
+    padding: 24px 28px;
+  }
+  .total-time {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .reaction-grid {
+    gap: 14px;
+  }
+  .stopwatch {
+    font-size: 48px;
+    margin-top: 40px;
+  }
+  .countdown {
+    font-size: 120px;
+    margin-top: 50px;
+  }
+  .penalty {
+    font-size: 20px;
+  }
+}
+
+.gameover-box h2 {
+  color: red;
 }
