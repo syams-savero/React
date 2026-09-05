@@ -1,4 +1,4 @@
-import ( useState ) from 'react';
+import { useState } from 'react';
 
 export default function MovingDot() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -8,7 +8,7 @@ export default function MovingDot() {
     onPointerMove={(e) => {
         setPosition({ x: e.clientX, y: e.clientY });
       }}
-      style={{ position: 'relative', width: '100vw', height: '50vh', border: '1px solid black' }}>
+      style={{ position: 'relative', width: '100vw', height: '50vh' }}>
 
   <div style={{
         position: 'absolute',
