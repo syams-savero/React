@@ -7,6 +7,7 @@ import TaskMngr from './taskManager.jsx';
 import Pure from './pureComponents.jsx';
 import Interact from './interactivity.jsx';
 import ReactionGame from './reactionGame.jsx';
+import GroupState from './choosingState.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -55,6 +56,8 @@ export default function Board() {
     return <Interact />
   } else if (view === 'reaction') {
     return <ReactionGame />
+  } else if (view === 'GroupState') {
+    return <GroupState />
   }
 
   return (
@@ -83,6 +86,7 @@ export default function Board() {
       <button onClick={() => setView('pure')}>Pure Components</button>
       <button onClick={() => setView('interact')}>Interactivity</button>
       <button onClick={() => setView('reaction')}>Reaction Game</button>
+      <button onClick={() => setView('GroupState')}>GroupState</button>
       </div>
     </>
   );
