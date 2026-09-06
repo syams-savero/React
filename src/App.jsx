@@ -8,6 +8,7 @@ import Pure from './pureComponents.jsx';
 import Interact from './interactivity.jsx';
 import ReactionGame from './reactionGame.jsx';
 import GroupState from './choosingState.jsx';
+import AvoidContra from './avoidContradictionState.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -58,6 +59,8 @@ export default function Board() {
     return <ReactionGame />
   } else if (view === 'GroupState') {
     return <GroupState />
+  } else if (view === 'avoid-contra') {
+    return <AvoidContra />
   }
 
   return (
@@ -87,6 +90,7 @@ export default function Board() {
       <button onClick={() => setView('interact')}>Interactivity</button>
       <button onClick={() => setView('reaction')}>Reaction Game</button>
       <button onClick={() => setView('GroupState')}>GroupState</button>
+      <button onClick={() => setView('avoid-contra')}>Avoid Contradiction State</button>
       </div>
     </>
   );
