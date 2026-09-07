@@ -9,6 +9,7 @@ import Interact from './interactivity.jsx';
 import ReactionGame from './reactionGame.jsx';
 import GroupState from './choosingState.jsx';
 import AvoidContra from './avoidContradictionState.jsx';
+import AvoidDupState from './avoidduplicationstate.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -61,6 +62,8 @@ export default function Board() {
     return <GroupState />
   } else if (view === 'avoid-contra') {
     return <AvoidContra />
+  } else if (view === 'avoid-dup-state') {
+    return <AvoidDupState />
   }
 
   return (
@@ -91,6 +94,7 @@ export default function Board() {
       <button onClick={() => setView('reaction')}>Reaction Game</button>
       <button onClick={() => setView('GroupState')}>GroupState</button>
       <button onClick={() => setView('avoid-contra')}>Avoid Contradiction State</button>
+      <button onClick={() => setView('avoid-dup-state')}>Avoid Duplication State</button>
       </div>
     </>
   );
