@@ -18,8 +18,8 @@ function Panel({ title, description, isActive, onShow }) {
 export default function Animal() {
   const [active, setActive] = useState(0);
   return (
-  <>
-    <h2>Cat</h2>
+  <div style={{ textAlign: 'left' }}>
+    <h2 style={{ textAlign: 'center' }}>Cat</h2>
     <Panel
       title='About'
       description='a small, carnivorous mammal and one of the most popular companion animals in the world'
@@ -33,6 +33,6 @@ export default function Animal() {
       isActive={active === 2}
       onShow={() => setActive(2)}
     />
-  </>
+  </div>
   )
 }
