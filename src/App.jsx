@@ -12,6 +12,7 @@ import AvoidContra from './avoidContradictionState.jsx';
 import AvoidDupState from './avoidduplicationstate.jsx';
 import SharingState from './sharingState.jsx';
 import Reduce from './reducer.jsx';
+import UseRef from './useref.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -70,6 +71,8 @@ export default function Board() {
     return <SharingState />
   } else if (view === 'reducer') {
     return <Reduce />
+  } else if (view === 'useref') {
+    return <UseRef />
   }
 
   return (
@@ -103,6 +106,7 @@ export default function Board() {
       <button onClick={() => setView('avoid-dup-state')}>Avoid Duplication State</button>
       <button onClick={() => setView('share-state')}>Sharing State</button>
       <button onClick={() => setView('reducer')}>reducer</button>
+      <button onClick={() => setView('useref')}>useref</button>
       </div>
     </>
   );
