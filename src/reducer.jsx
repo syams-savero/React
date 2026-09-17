@@ -50,6 +50,7 @@ function countReducer(state, action) {
 export default function Counter() {
   const [count, dispatch] = useReducer(countReducer, 0);
 
+  
   function handleIncrement() {
     dispatch({ type: 'incremented' });
   }
