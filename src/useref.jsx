@@ -1,30 +1,19 @@
-/*
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
-export default function CounterState() {
-  const [count, setCount] = useState(0);
+export default function Form() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const usernameref = useRef(null);
+  const passwordref = useRef(null);
 
-  function handleCLick() {
-    setCount(count + 1);
+  function handleUsernameInput(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (username.trim() === '') {
+        usernameref.current.focus();
+      } else {
+        passwordref.current.focus();
+      }
+    }
   }
-
-  return (
-  <button onClick={handleCLick}>{count}</button>
-  )
-}
-*/ 
-
-import { useRef } from 'react';
-
-export default function CounterRef() {
-  const countRef = useRef(0);
-
-  function handleCLick() {
-    countRef.current = countRef.current + 1;
-    alert(countRef.current);
-  }
-
-  return (
-  <button onClick={handleCLick}>{countRef.current}</button>
-  )
 }
