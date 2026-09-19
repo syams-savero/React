@@ -313,3 +313,83 @@
   background: black;
   color: white;
 }
+
+.transfer-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+.transfer-card {
+  width: 320px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.transfer-card h2 {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.balance-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.balance-row span {
+  color: black;
+  font-weight: 600;
+}
+
+.balance-row b {
+  color: black;
+}
+
+.transfer-card input {
+  padding: 8px 10px;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.transfer-card input[type="number"]::-webkit-outer-spin-button,
+.transfer-card input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.transfer-card input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.transfer-card button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: black;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.transfer-card button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.judul-transfer {
+  color: black;
+}
