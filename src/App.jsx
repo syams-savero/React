@@ -15,6 +15,7 @@ import Reduce from './reducer.jsx';
 import UseRef from './useref.jsx';
 import Transfer from './transfer.jsx';
 import Effect from './effects.jsx';
+import Effect2 from './effects2.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -79,6 +80,8 @@ export default function Board() {
     return <Transfer />
   } else if (view === 'effect') {
     return <Effect />
+  } else if (view === 'effect2') {
+    return <Effect2 />
   }
 
   return (
@@ -115,6 +118,7 @@ export default function Board() {
       <button onClick={() => setView('useref')}>useref</button>
       <button onClick={() => setView('transfer')}>Transfer</button>
       <button onClick={() => setView('effect')}>Effect</button>
+      <button onClick={() => setView('effect2')}>Effect API</button>
       </div>
     </>
   );
