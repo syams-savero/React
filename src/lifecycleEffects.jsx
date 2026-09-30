@@ -31,7 +31,7 @@ export default function ChatRoom() {
     connection.connect();
     connection.onMessage((text) => setMessage(text));
     return () => connection.disconnect();
-  }, []);
+  }, [roomId]);
 
   return (
     <div style={{ fontFamily: 'sans-serif', padding: 20 }}>
@@ -39,11 +39,7 @@ export default function ChatRoom() {
       <p>Room aktif (UI): <b>{roomId}</b></p>
       <button onClick={() => setRoomId('general')}>general</button>
       <button onClick={() => setRoomId('travel')} style={{ marginLeft: 8 }}>travel</button>
-      <p>Pesan terakhir: {message}</p>
-      <p style={{ color: 'red' }}>
-        Gejala bug: klik travel di UI, tapi pesan yang masuk masih dari room
-        general. Buka console juga, apa yang terjadi saat pindah room?
-      </p>
+      <p>Pesan terakhir: {message}</p> 
     </div>
   );
 }
