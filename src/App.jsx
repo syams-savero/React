@@ -16,6 +16,7 @@ import UseRef from './useref.jsx';
 import Transfer from './transfer.jsx';
 import Effect from './effects.jsx';
 import Effect2 from './effects2.jsx';
+import Lifecycle from './lifecycleEffects.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -82,6 +83,8 @@ export default function Board() {
     return <Effect />
   } else if (view === 'effect2') {
     return <Effect2 />
+  } else if (view === 'lifecycle') {
+    return <Lifecycle />
   }
 
   return (
@@ -119,6 +122,7 @@ export default function Board() {
       <button onClick={() => setView('transfer')}>Transfer</button>
       <button onClick={() => setView('effect')}>Effect</button>
       <button onClick={() => setView('effect2')}>Effect API</button>
+      <button onClick={() => setView('lifecycle')}>Lifecycle</button>
       </div>
     </>
   );
