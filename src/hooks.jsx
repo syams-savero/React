@@ -8,7 +8,7 @@ export default function HooksDemo() {
   return (
   <div style={{
       background: isDark ? '#111' : '#f5f5f5',
-      color: isDark ? '#eee' : '111',
+      color: isDark ? '#eee' : '#111',
       padding: 20,
       minHeight: 200,
     }}>
