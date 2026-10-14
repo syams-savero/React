@@ -18,6 +18,7 @@ import Effect from './effects.jsx';
 import Effect2 from './effects2.jsx';
 import Lifecycle from './lifecycleEffects.jsx';
 import Hooks from './hooks.jsx';
+import Context from './context.jsx';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -88,6 +89,8 @@ export default function Board() {
     return <Lifecycle />
   } else if (view === 'hooks') {
     return <Hooks />
+  } else if (view === 'context') {
+    return <Context />
   }
 
   return (
@@ -127,6 +130,7 @@ export default function Board() {
       <button onClick={() => setView('effect2')}>Effect API</button>
       <button onClick={() => setView('lifecycle')}>Lifecycle</button>
       <button onClick={() => setView('hooks')}>Custom Hooks</button>
+      <button onClick={() => setView('context')}>useContext</button>
       </div>
     </>
   );
