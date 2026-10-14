@@ -10,7 +10,7 @@ function ThemeButton() {
     position: "fixed",
     top: 30,
     left: '50%',
-    transform: 'translateX(-50%',
+    transform: 'translateX(-50%)',
   }}>Warna : {theme}</button>
 }
 
@@ -37,7 +37,7 @@ export default function Context() {
         alignItems: "center",
         justifyContent: "center"
       }}>
-      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} style={{ color: 'inherit', background: 'transparent', border: 'none', fontSize: 16 }}>
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="theme-toogle">
         Ganti Tema
       </button>
       <Page />
