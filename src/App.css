@@ -239,9 +239,14 @@
 }
 
 .nav-button {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 8px;
-  justify-content: center;
+}
+
+.nav-button button {
+  width: 100%;
+  padding: 10px 8px;
 }
 
 .login-page {
