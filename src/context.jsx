@@ -6,7 +6,11 @@ function ThemeButton() {
   return <button style={{
     background: 'transparent',
     border: '2px dashed currentColor',
-    color: 'inherit'
+    color: 'inherit',
+    position: "fixed",
+    top: 30,
+    left: '50%',
+    transform: 'translateX(-50%',
   }}>Warna : {theme}</button>
 }
 
@@ -27,7 +31,11 @@ export default function Context() {
         inset: 0,
         boxSizing: 'border-box',
         overflow: "auto",
-        zIndex: 10
+        zIndex: 10,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
       }}>
       <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} style={{ color: 'inherit', background: 'transparent', border: 'none', fontSize: 16 }}>
         Ganti Tema
